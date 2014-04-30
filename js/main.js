@@ -27,6 +27,13 @@
 	window.d = D;
 })(window);
 
+try{
+    console.log(em.circle().getRadius());
+}catch(e)
+{
+    console.log(e.stack);
+}
+
 d.ondomready(main);
 
 function main(){
@@ -37,6 +44,17 @@ function main(){
 	{
 		gl.clearColor(1.0,1.0,1.0,1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
+        
+        var buffer = gl.createBuffer(),
+            data = [ 1.0, 0.0, 0.0,
+                     0.0, 1.0, 0.0,
+                     0.0, 1.0, 1.0
+                   ];
+        
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+        
+        
 	}else
 		alert("Error : Your browser doesn't support WebGL.");
 }
