@@ -21,20 +21,20 @@
             };
             circle.prototype.getArea = function(){
                 if(!isNaN(this.rad)) return this.rad*this.rad*Math.PI;
-                else return null
+                else return null;
             };
             
             return new circle(r);
         }
     };
     
-    EM.helpers.prototype.return = function(key, val){
+    EM.helpers.prototype.ret = function(key, val){
         if(val) return val;
         if(!val){
             if(Error) throw new Error(key + " not defined");
             else throw {message: key + " not defined"};
         }
-    }
+    };
     
     window.em = EM;
 })(window);
